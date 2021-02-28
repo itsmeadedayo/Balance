@@ -42,6 +42,9 @@
 
             .content {
                 text-align: center;
+                font-size:40px;
+                font-weight:bolder;
+                color:black;
             }
 
             .title {
@@ -61,20 +64,11 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        .believe{
-          position: absolute;
-        }
-        .yup{
-            position:relative;
-        }
-        .content{
-            color: black;
-        }
+        
         </style>
     </head>
     <body>
-    <img src="https://previews.123rf.com/images/ionutparvu/ionutparvu1612/ionutparvu161201547/67602894-busy-stamp-sign-text-word-logo-blue-.jpg" alt="logo" class="believe" width="300px" height="250px">
-       
+    
     <div class="yup">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -89,10 +83,10 @@
                         @endif
                     @endauth
                 </div>
-            
+                     
                 <div class="content">
                 <div class="title m-b-md">
-                    GET SCHEDULED
+                Get Scheduled
                 </div>
 
                 </div>
