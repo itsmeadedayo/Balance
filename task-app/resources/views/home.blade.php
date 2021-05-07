@@ -34,23 +34,28 @@
 
 
             <div class="card card-default mt-4">
-                <div class="card-header">Your todos</div>
+            
+                <div class="card-header"><input type="checkbox" id="chkCheckAll"/>    Your todos</div>
+      
 
+
+         
                 <div class="card-body">
                
                @foreach($todos as $todo)
              <p class="lead">  {{ $todo->todo}}</p>
              <form action="{{ route('todo.delete', $todo->id )}}" method="post">
+             <input class="form-check-input" type="checkbox" name="ids" value="{{$todo->id}}">
 <p>
 <small>{{ $todo-> created_at->diffForHumans() }}</small>
 
-             <a href="{{ route('todo.edit', $todo->id) }}" class="btn btn-secondary btn-sm">Edit</a>
+             <a href="{{ route('todo.edit', $todo->id) }}" class="btn btn-secondary btn-sm"      >Edit</a>
              
                 {{ csrf_field() }}
                 {{ method_field("DELETE") }}
-                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                <button type="submit" class="btn btn-danger btn-sm"    >Delete</button>
             </form>
-             </p><hr>
+             </p><hr> 
                @endforeach
 
                @if(count($todos) == 0)
@@ -63,4 +68,18 @@
         </div>
     </div>
 </div>
+
+<script>
+
+   $(function(e){
+      $("#chkCheckAll").click(function{
+         $(".checkbox").prop('checked', $(this).prop('checked'));
+      })
+   });
+
+</script>
+
+
+
+
 @endsection

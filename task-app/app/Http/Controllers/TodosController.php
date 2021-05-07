@@ -35,7 +35,15 @@ public function edit($id){
     $this->validate($request, [
         'todo' => 'required|min:5'
     ]);
+
+
       $todo = Todo::find($id);
+      $todo->todo = $request->todo;
+      $todo->save();
+      return redirect()->route('home')->with('success','Todo updated.');
+
+
+
       
       if($todo->user_id != Auth::id()){
         return redirect()->route('home')->with('warning','unauthorized!!!');
@@ -52,4 +60,13 @@ public function edit($id){
           return redirect()->route('home')->with('success','Todo deleted.');
       }
 
-}
+      public function deleteAll(Request $request){
+        $ids = $request->get('ids');
+        $dbs = DE::table('posts')->where('id', explode(',', $ids))->delete();
+        return redirect(posts);
+      }
+
+}     
+ 
+      
+   
